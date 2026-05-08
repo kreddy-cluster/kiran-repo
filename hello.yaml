@@ -43,27 +43,6 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hello-ingress
-  namespace: hello
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: k8s-master-poc.hpc.uidaho.edu
-      http:
-        paths:
-          - path: /hello
-            pathType: Prefix
-            backend:
-              service:
-                name: hello-service
-                port:
-                  number: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
   name: hello-dev-ingress
   namespace: hello
   annotations:
@@ -71,7 +50,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: app2.cbradford1.nkn.uidaho.edu/
+    - host: app2.cbradford1.nkn.uidaho.edu
       http:
         paths:
           - path: /
